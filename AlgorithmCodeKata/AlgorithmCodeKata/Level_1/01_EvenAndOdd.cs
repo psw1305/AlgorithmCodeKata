@@ -6,7 +6,7 @@
 
 public class _01_EvenAndOdd
 {
-    public string solution(int num)
+    public string Solution(int num)
     {
         string answer = "";
 

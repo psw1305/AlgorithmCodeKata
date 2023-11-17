@@ -6,7 +6,7 @@
 
 public class _02_Average
 {
-    public double solution(int[] arr)
+    public double Solution(int[] arr)
     {
         double answer = 0;
 
