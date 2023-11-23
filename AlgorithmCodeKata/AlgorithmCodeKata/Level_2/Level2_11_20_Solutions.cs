@@ -100,4 +100,56 @@ public class Level2_11_20_Soluctions
 
         return answer;
     }
+
+    // 자연수 뒤집어 배열로 만들기
+    public int[] Solution_17(long n)
+    {
+        string str = n.ToString();
+        int length = str.Length;
+        int[] answer = new int[length];
+
+        for (int i = 0; i < length; i++)
+        {
+            answer[i] = int.Parse(str[(length - 1) - i].ToString());
+        }
+
+        return answer;
+    }
+
+    // 문자열을 정수로 바꾸기
+    public int Solution_18(string s)
+    {
+        int answer = 0;
+        return answer = int.Parse(s);
+    }
+
+    // 정수 제곱근 판별
+    public long Solution_19(long n)
+    {
+        double num = Math.Sqrt(n);
+
+        if (num % 1 == 0)
+        {
+            return (long)((num + 1) * (num + 1));
+        }
+        else
+        {
+            return -1;
+        }
+    }
+
+    // 정수 내림차순으로 배치하기
+    public long Solution_20(long n)
+    {
+        string str = n.ToString();
+        char[] charArr = str.ToCharArray();
+
+        Array.Sort(charArr);
+        Array.Reverse(charArr);
+
+        string reversedStr = new string(charArr);
+        long answer = long.Parse(reversedStr);
+
+        return answer;
+    }
 }
