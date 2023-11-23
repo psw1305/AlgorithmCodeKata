@@ -1,4 +1,4 @@
-﻿namespace AlgorithmCodeKata.Level_1;
+﻿namespace AlgorithmCodeKata.Level_2;
 
 public class Level1_11_20_Soluctions
 {
