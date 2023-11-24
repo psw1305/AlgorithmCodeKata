@@ -1,6 +1,6 @@
 ﻿namespace AlgorithmCodeKata.Level_1;
 
-public class Level1_01_10_Soluctions
+public class Level1_01_10_Solutions
 {
     // 두 수의 차
     public int Solution_1(int num1, int num2)
