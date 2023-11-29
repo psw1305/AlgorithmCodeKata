@@ -175,4 +175,31 @@ public class Level2_21_30_Solutions
 
         return answer;
     }
+
+    // 가운데 글자 가져오기
+    public string Solution_30(string s)
+    {
+        int middleNum = s.Length / 2;
+        string answer = "";
+
+        for (int i = 0; i < s.Length; i++)
+        {
+            if (s.Length % 2 == 0)
+            {
+                if (i == middleNum - 1 || i == middleNum)
+                {
+                    answer += s[i];
+                }
+            }
+            else
+            {
+                if (i == middleNum)
+                {
+                    answer += s[i];
+                }
+            }
+        }
+
+        return answer;
+    }
 }
