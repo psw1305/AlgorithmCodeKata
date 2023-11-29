@@ -10,15 +10,7 @@ public class Level2_31_40_Solutions
 
         for (int i = 0; i < n; i++)
         {
-            if (isPattern)
-            {
-                answer += '수';
-            }
-            else
-            {
-                answer += '박';
-            }
-
+            answer += isPattern ? '수' : '박';
             isPattern = !isPattern;
         }
 
