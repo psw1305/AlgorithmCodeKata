@@ -59,4 +59,78 @@ public class Level2_31_40_Solutions
         Array.Reverse(charArr);
         return new string(charArr);
     }
+
+    // 부족한 금액 계산하기
+    public long Solution_35(int price, long money, int count)
+    {
+        long sum = 0;
+
+        for (int i = 1; i <= count; i++)
+        {
+            sum += (price * i);
+        }
+
+        if (money >= sum)
+        {
+            return 0;
+        }
+        else
+        {
+            return sum - money;
+        }
+    }
+
+    // 문자열 다루기 기본
+    public bool Solution_36(string s)
+    {
+        if (s.Length == 4 || s.Length == 6)
+        {
+            bool answer = int.TryParse(s, out int num);
+            return answer;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    // 행렬의 덧셈
+    public int[,] Solution_37(int[,] arr1, int[,] arr2)
+    {
+        int row = arr1.GetLength(0);
+        int col = arr1.GetLength(1);
+        int[,] answer = new int[row, col];
+
+        for (int i = 0; i < row; i++)
+        {
+            for (int k = 0; k < col; k++)
+            {
+                answer[i, k] = arr1[i, k] + arr2[i, k];
+            }
+        }
+
+        return answer;
+    }
+
+    // 직사각형 별찍기
+    public static void Solution_38()
+    {
+        String[] s;
+
+        Console.Clear();
+        s = Console.ReadLine().Split(' ');
+
+        int a = Int32.Parse(s[0]);
+        int b = Int32.Parse(s[1]);
+
+        for (int i = 0; i < b; i++)
+        {
+            for (int k = 0; k < a; k++)
+            {
+                Console.Write("*");
+            }
+
+            Console.WriteLine();
+        }
+    }
 }
