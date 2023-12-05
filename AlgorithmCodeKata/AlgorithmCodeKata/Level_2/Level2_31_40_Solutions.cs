@@ -133,4 +133,34 @@ public class Level2_31_40_Solutions
             Console.WriteLine();
         }
     }
+
+    // 최대공약수와 최소공배수
+    public int[] Solution_39(int n, int m)
+    {
+        int[] answer = new int[2];
+        answer[0] = GCD(n, m);
+        answer[1] = n * m / answer[0];
+        return answer;
+    }
+
+    public int GCD(int a, int b)
+    {
+        if (b == 0) return a;
+        else return GCD(b, a % b);
+    }
+
+    // 3진법 뒤집기
+    public int Solution_40(int n)
+    {
+        int answer = 0;
+
+        while (n > 0)
+        {
+            answer *= 3;
+            answer += n % 3;
+            n /= 3;
+        }
+
+        return answer;
+    }
 }
