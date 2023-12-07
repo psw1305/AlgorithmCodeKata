@@ -30,4 +30,29 @@ public class Level3_41_45_Solutions
 
         return answer;
     }
+
+    // 삼총사
+    public int Solution_42(int[] number)
+    {
+        int answer = 0;
+        int result = 0;
+        int length = number.Length;
+
+        for (int i = 0; i < length; i++)
+        {
+            for (int j = i + 1; j < length; j++)
+            {
+                for (int k = j + 1; k < length; k++)
+                {
+                    result = number[i] + number[j] + number[k];
+                    if (result == 0)
+                    {
+                        answer++;
+                    }
+                }
+            }
+        }
+
+        return answer;
+    }
 }
