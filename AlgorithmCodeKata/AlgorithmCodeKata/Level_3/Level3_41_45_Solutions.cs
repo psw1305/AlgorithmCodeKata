@@ -55,4 +55,47 @@ public class Level3_41_45_Solutions
 
         return answer;
     }
+
+    // 크기가 작은 부분 문자열
+    public int Solution_43(string t, string p)
+    {
+        int answer = 0;
+
+        for (int i = 0; i <= t.Length - p.Length; i++)
+        {
+            string str = t.Substring(i, p.Length);
+
+            if (Convert.ToInt64(str) <= Convert.ToInt64(p))
+            {
+                answer += 1;
+            }
+        }
+
+        return answer;
+    }
+
+    // 최소 직사각형
+    public int Solution_44(int[,] sizes)
+    {
+        for (int i = 0; i < sizes.GetLength(0); i++)
+        {
+            if (sizes[i, 0] < sizes[i, 1])
+            {
+                int temp = sizes[i, 0];
+                sizes[i, 0] = sizes[i, 1];
+                sizes[i, 1] = temp;
+            }
+        }
+
+        int max_w = 0;
+        int max_h = 0;
+
+        for (int i = 0; i < sizes.GetLength(0); i++)
+        {
+            if (max_w < sizes[i, 0]) max_w = sizes[i, 0];
+            if (max_h < sizes[i, 1]) max_h = sizes[i, 1];
+        }
+
+        return max_w * max_h;
+    }
 }
