@@ -98,4 +98,71 @@ public class Level3_41_45_Solutions
 
         return max_w * max_h;
     }
+
+    // 시저 암호
+    public string Solution_45(string s, int n)
+    {
+        char[] charArr = s.ToCharArray();
+
+        for (int i = 0; i < s.Length; i++)
+        {
+            int asc = (int)charArr[i];
+
+            if ((asc >= 65 && asc <= 90))
+            {
+                asc += n;
+
+                if (asc > 90)
+                {
+                    asc -= 26;
+                }
+            }
+            else if (asc >= 97 && asc <= 122)
+            {
+                asc += n;
+
+                if (asc > 122)
+                {
+                    asc -= 26;
+                }
+            }
+
+            charArr[i] = (char)asc;
+        }
+
+        string answer = new string(charArr);
+        return answer;
+    }
+
+    // 숫자 문자열과 영단어
+    public int Solution_46(string s)
+    {
+        string str = "";
+        string result = "";
+        string[] units = { "zero", "one", "two", "three", "four",
+                          "five", "six", "seven", "eight", "nine" };
+
+        foreach (char c in s)
+        {
+            if (char.IsDigit(c))
+            {
+                str += c;
+            }
+            else
+            {
+                result += c;
+
+                int index = Array.IndexOf(units, result);
+
+                if (index != -1)
+                {
+                    result = "";
+                    str += index;
+                }
+            }
+        }
+
+        int answer = int.Parse(str);
+        return answer;
+    }
 }
