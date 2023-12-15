@@ -1,6 +1,6 @@
 ﻿namespace AlgorithmCodeKata.Level_3;
 
-public class Level3_41_45_Solutions
+public class Level3_41_50_Solutions
 {
     // 이상한 문자 만들기
     public string Solution_41(string s)
@@ -163,6 +163,30 @@ public class Level3_41_45_Solutions
         }
 
         int answer = int.Parse(str);
+        return answer;
+    }
+
+    // 문자열 내 마음대로 정렬하기
+    public string[] Solution_47(string[] strings, int n)
+    {
+        string[] answer = strings.OrderBy(str => str[n]).ThenBy(str => str).ToArray();
+        return answer;
+    }
+
+    // K번째수 정렬
+    public int[] Solution_48(int[] array, int[,] commands)
+    {
+        int[] answer = new int[commands.GetLength(0)];
+
+        for (int n = 0; n < commands.GetLength(0); n++)
+        {
+            int i = commands[n, 0] - 1;
+            int j = commands[n, 1];
+            int k = commands[n, 2] - 1;
+            int[] arr = array.Skip(i).Take(j - i).OrderBy(x => x).ToArray();
+            answer[n] = arr[k];
+        }
+
         return answer;
     }
 }
