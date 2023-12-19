@@ -189,4 +189,49 @@ public class Level3_41_50_Solutions
 
         return answer;
     }
+
+    // 두 개 뽑아서 더하기
+    public int[] Solution_49(int[] numbers)
+    {
+        HashSet<int> list = new HashSet<int>();
+        int length = numbers.Length;
+
+        for (int i = 0; i < length - 1; i++)
+        {
+            for (int j = i + 1; j < length; j++)
+            {
+                int add = numbers[i] + numbers[j];
+                list.Add(add);
+            }
+        }
+
+        int[] answer = list.OrderBy(n => n).ToArray();
+
+        return answer;
+    }
+
+    // 가장 가까운 같은 글자
+    public int[] Solution_50(string s)
+    {
+        int[] answer = new int[s.Length];
+        answer[0] = -1;
+
+        for (int i = 1; i < s.Length; i++)
+        {
+            for (int j = i - 1; j >= 0; j--)
+            {
+                if (s[j] == s[i])
+                {
+                    answer[i] = i - j;
+                    break;
+                }
+                else
+                {
+                    answer[i] = -1;
+                }
+            }
+        }
+
+        return answer;
+    }
 }
