@@ -45,4 +45,71 @@ public class Level3_51_60_Solutions
 
         return answer;
     }
+
+    // 명예의 전당 (1)
+    public int[] Solution_53(int k, int[] score)
+    {
+        int[] answer = new int[score.Length];
+        List<int> bestScore = new List<int>();
+        int num = 0;
+
+        for (int i = 0; i < score.Length; i++)
+        {
+            if (num < k)
+            {
+                bestScore.Add(score[i]);
+                num++;
+            }
+            else
+            {
+                int min = bestScore.Min();
+                int minIdx = bestScore.IndexOf(min);
+
+                if (min < score[i])
+                {
+                    bestScore[minIdx] = score[i];
+                }
+            }
+
+            answer[i] = bestScore.Min();
+        }
+
+        return answer;
+    }
+
+    // 2016
+    public string Solution_54(int a, int b)
+    {
+        string[] day = new string[] { "SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT" };
+        DateTime date = new DateTime(2016, a, b);
+        DayOfWeek dayOfWeek = date.DayOfWeek;
+        return day[(int)dayOfWeek];
+    }
+
+    // 카드뭉치
+    public string Solution_55(string[] cards1, string[] cards2, string[] goal)
+    {
+        int idx1 = 0;
+        int idx2 = 0;
+
+        for (int i = 0; i < goal.Length; i++)
+        {
+            if (idx1 < cards1.Length && goal[i] == cards1[idx1])
+            {
+                idx1++;
+                continue;
+            }
+            else if (idx2 < cards2.Length && goal[i] == cards2[idx2])
+            {
+                idx2++;
+                continue;
+            }
+            else
+            {
+                return "No";
+            }
+        }
+
+        return "Yes";
+    }
 }
